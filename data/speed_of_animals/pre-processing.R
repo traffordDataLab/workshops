@@ -30,6 +30,7 @@ stats <- df %>%
            case_when(
              str_detect(length, "cm") ~ parse_number(length),
              TRUE ~ parse_number(length)*100),
+         length_cm = format(round(length_cm, 1), nsmall = 1),
          mass_kg =
            case_when(
              str_detect(mass, "t") ~ parse_number(mass)*1000,
