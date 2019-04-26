@@ -26,6 +26,7 @@ df <- map_df(url, function(i) {
 
 stats <- df %>% 
   mutate(name = str_to_title(name),
+         habitat = str_to_title(habitat),
          length_cm =
            case_when(
              str_detect(length, "cm") ~ parse_number(length),
