@@ -791,7 +791,7 @@ The workflow for creating a dynamic document in R is:
 
 ## Further resources
 
-The following list of online books, MOOCs and blog post should help you to explore R in more depth:
+The following list of online books, MOOCs and blog posts should help you to explore R in more depth:
 
 **Beginner**     
 - [RStudio primers](https://rstudio.cloud/learn/primers)   
