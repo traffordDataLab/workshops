@@ -53,7 +53,7 @@ Since R is a language it is also:
 - shareable
 - reproducibile
 - human readable
-- diffable
+- [diffable](https://en.wiktionary.org/wiki/diffable)
 
 and therefore supports the principles of open science.
 <br />
@@ -80,7 +80,7 @@ RStudio has four different panes:
 
 - The **Console** pane (top left) is used to execute R commands immediately.
 
-- The **Environment** pane (top right) shows the datasets, models, and plots that are loaded in the current R session. This pane also contains tabs with a scrollable history of executed code, connections to databases and Git options.
+- The **Environment** pane (top right) shows the datasets, models, and plots that are loaded in the current R session. This pane also contains tabs with a scrollable history of executed code, connections to databases and [Git](https://git-scm.com/) options.
 
 - The **Files** pane (bottom right) shows plots and interactive web content, help documentation, previous commands, and R packages that you can install and load.
 
@@ -114,6 +114,8 @@ RStudio has many useful shortcuts that enable you to keep your hands on the keyb
 - `Ctrl/Cmd + Shift + R`: Add a section break
 - `Shift + Ctrl/Cmd + 1`: Make the console full screen
 - `Ctrl/Cmd + Shift + A`: Format your code
+
+NB The use of Ctrl or Cmd depends on whether you are using a Windows or a Mac device.
 
 For a complete list of all available shortcuts just type: `Alt + Shift + K`
 
@@ -179,11 +181,13 @@ NB It's not good practice to set your working directory at the top of your R scr
 *File > New File > R Script*
 
 #### Install R packages    
+You only need to install an R package once. Subsequent package updates can be handled by selecting *Packages > Update* in the **Files** pane of RStudio.
 ```{r, eval=FALSE}
 install.packages("tidyverse")
 ```
 
-#### Load R packages   
+#### Load R packages 
+Packages need to be loaded at the start of every R session to give you access to the functions you need.
 ```{r}
 library(tidyverse)
 ```
@@ -414,15 +418,18 @@ p <- ggplot(temp, aes(x = mass_kg, y = speed_kph)) +
   scale_size_continuous(range = c(1, 10)) +
   scale_x_continuous(trans = log_trans(), breaks=c(1,10,100,10000)) +
   scale_y_continuous(trans = log_trans(), breaks=c(1,10,100)) +
-  labs(subtitle = "Relationship between body mass and speed \namongst selected animals",
+  labs(title = "Relationship between body mass and speed namongst selected animals",
+       subtitle = "Size is proportional to length (cm)",
        caption = "Source: speedofanimals.com",
        x = "Body mass (kg, log)",
        y = "Top speed (kph, log)") +
-  guides(size = FALSE, fill = FALSE) +
+  guides(fill = FALSE, size = FALSE) +
   theme_minimal() +
   theme(
     plot.margin = unit(rep(30, 4), "pt"),
     panel.grid.minor = element_blank(),
+    plot.title = element_text(size = 10),
+    plot.subtitle = element_text(size = 8),
     axis.title = element_text(size = 8, face = "plain", hjust = 1),
     plot.caption = element_text(size = 8, hjust = 1, margin = margin(t = 15)),
     legend.position = "top",
